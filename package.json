@@ -1,0 +1,30 @@
+{
+  "name": "rv-pay",
+  "version": "1.0.0",
+  "description": "money transfer app (server)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "test": "cross-env NODE_ENV=test npm test",
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David4bay/RV-Pay.git"
+  },
+  "author": "David Bayode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/David4bay/RV-Pay/issues"
+  },
+  "homepage": "https://github.com/David4bay/RV-Pay#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "mysql2": "^3.11.5",
+    "nodemon": "^3.1.9"
+  }
+}
