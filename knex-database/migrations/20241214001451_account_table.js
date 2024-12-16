@@ -13,6 +13,7 @@ exports.up = function(knex) {
     table.decimal("balance", 10, 2).defaultTo(0)
     // we can show the user account creation and update, could also add birthday 
     // or use date.now to gauge events between creation of account
+    table.uuid("user_id").references("user.id")
     table.timestamps(true, true)
   })
 };

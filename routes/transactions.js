@@ -1,11 +1,20 @@
-const transactions = require("express").Router()
+// const transactions = require("express").Router()
 
-transactions.get("/history", async function(request, response) {
+// transaction.post("/send/:id", async function(request, response) {
 
-})
+//     // let senderId = request.query.
+// })
 
-transactions.delete("/history", async function(request, response) {
+// transactions.post("/history/:id", async function(request, response) {
 
-})
+// })
 
-module.exports = transactions
+// transactions.get("/history/:id", async function(request, response) {
+
+// })
+
+// transactions.delete("/history/:id", async function(request, response) {
+
+// })
+
+// module.exports = transactions

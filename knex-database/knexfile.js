@@ -3,10 +3,12 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-module.exports = {
 
+require("dotenv").config()
+
+module.exports = {
   development: {
-    client: 'mysql2',
+    client: 'mysql',
     connection: {
       host: '127.0.0.1',
       user: process.env.DEV_DATABASE_USERNAME,
@@ -20,12 +22,13 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations'
     },
-    seeds: {
-      directory: './seeds'
-    }
+    debug: true
+    // seeds: {
+    //   directory: './seeds'
+    // }
   },
   production: {
-    client: 'mysql2',
+    client: 'mysql',
     connection: {
       host: '127.0.0.1',
       user: process.env.PROD_DATABASE_USERNAME,
@@ -39,8 +42,9 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations'
     },
-    seeds: {
-      directory: './seeds'
-    }
+    // seeds: {
+    //   directory: './seeds'
+    // }
+    debug: true
   }
 };

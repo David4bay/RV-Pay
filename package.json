@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
-    "test": "cross-env NODE_ENV=test npm test",
+    "test": "cross-env NODE_ENV=test npm run jest --runInBand --verbose",
     "dev": "cross-env NODE_ENV=development nodemon index.js"
   },
   "repository": {
@@ -19,11 +19,13 @@
   },
   "homepage": "https://github.com/David4bay/RV-Pay#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.5",
     "nodemon": "^3.1.9",
     "uuid": "^11.0.3"
