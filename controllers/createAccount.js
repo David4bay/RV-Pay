@@ -16,15 +16,19 @@ async function createAccount(request, response) {
         return
     }
 
+    if (!token) {
+        response.statusCode = 401
+        response.json({ message: "unauthorized to create an account.", status: 401 })
+        return
+    }
+
     if (validateEmailAndPassword(userEmail, userPassword).statusCode === 400) {
         let message = validateEmailAndPassword(userEmail, userPassword).message
         response.statusCode = 400
         response.json({ message: message, status: 400 })
         return
     }
-
-    let hashedPassword = bcrypt.hash(userPassword, process.env.HASH_COUNT)
-
+    
     let userExists = await db("user").where("password", password)
 
     if (!userExists) {
@@ -33,7 +37,11 @@ async function createAccount(request, response) {
         return
     }
 
-    if (!token) {
+    let hashedPassword = bcrypt.hash(userPassword, process.env.HASH_COUNT)
+
+    let verifyToken = jwt.verify(token, process.env.JWT_SECRET)
+
+    if (!verifyToken) {
         response.statusCode = 401
         response.json({ message: "unauthorized to create an account.", status: 401 })
         return

@@ -5,7 +5,7 @@ function validateCredentials(email, password) {
     let message
     // Gave a generous regular expression for email validation,
     // proper email validation should be done using a middleware
-    let emailRegex = /\w{2,}\@\w+{1,}\.\w{1,}$/
+    let emailRegex = /^\S+@\S+\.\S+$/
     switch(true) {
         case typeof email !== "string":
             statusCode = 400

@@ -18,8 +18,6 @@ async function signinUser(request, response) {
         return
     }
 
-    
-
     if (!redirect) {
 
         let hashPassword = bcrypt.hash(password, process.env.HASH_COUNT)
