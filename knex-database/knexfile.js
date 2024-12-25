@@ -3,14 +3,18 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-
-require("dotenv").config()
+/*  IMPORTANT!!!
+  Create a revpaydev database in mysql
+*/
+require("dotenv").config({
+  path: "../.env"})
+const path = require("path")
 
 module.exports = {
   development: {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {
-      host: '127.0.0.1',
+      host: 'localhost',
       user: process.env.DEV_DATABASE_USERNAME,
       password: process.env.DEV_DATABASE_PASSWORD,
       database: process.env.DEV_DATABASE_NAME
@@ -20,7 +24,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: path.join(__dirname, "/migrations")
     },
     debug: true
     // seeds: {
@@ -28,9 +32,9 @@ module.exports = {
     // }
   },
   production: {
-    client: 'mysql',
+    client: 'mysql2',
     connection: {
-      host: '127.0.0.1',
+      host: 'localhost',
       user: process.env.PROD_DATABASE_USERNAME,
       password: process.env.PROD_DATABASE_PASSWORD,
       database: process.env.PROD_DATABASE_NAME
@@ -40,7 +44,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: path.join(__dirname, "/migrations")
     },
     // seeds: {
     //   directory: './seeds'
